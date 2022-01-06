@@ -329,12 +329,14 @@ const ChatBox = ModelWithContact.extend({
             text = __('%1$s has gone offline', fullname);
         } else if (show === 'away') {
             text = __('%1$s has gone away', fullname);
+            text && this.createMessage({ 'message': text, 'type': 'info' });
         } else if (show === 'dnd') {
             text = __('%1$s is busy', fullname);
+            text && this.createMessage({ 'message': text, 'type': 'info' });
         } else if (show === 'online') {
             text = __('%1$s is online', fullname);
         }
-        text && this.createMessage({ 'message': text, 'type': 'info' });
+        //text && this.createMessage({ 'message': text, 'type': 'info' });
     },
 
     onScrolledChanged () {
